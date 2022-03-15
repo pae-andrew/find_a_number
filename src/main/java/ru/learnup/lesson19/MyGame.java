@@ -11,6 +11,6 @@ public class MyGame {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("configuration.xml");
         MyEventPublisher publisher = context.getBean(MyEventPublisher.class);
-        publisher.publishEvent("bitch");
+        publisher.publishEvent("good boy");
     }
 }
