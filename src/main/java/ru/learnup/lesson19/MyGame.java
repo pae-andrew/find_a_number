@@ -11,10 +11,10 @@ import java.util.Random;
 
 public class MyGame {
 
-    private ApplicationContext context;
     static Random random = new Random();
     public static int x = random.nextInt(0, 1000);
     public static Locale locale;
+    public static int AttemptCounter = 0;
 
     public static void main(String[] args) {
 
@@ -40,11 +40,13 @@ public class MyGame {
             assert answer != null;
             if (Utils.isNumeric(answer)) {
                 publisher.publishEvent(answer);
+                AttemptCounter++;
                 if (Integer.parseInt(answer) == x) {endGame = true;}
             }
             else {
                 publisher.publishEvent("notInt");
             }
         }
+        publisher.publishEvent("countOfTry");
     }
 }

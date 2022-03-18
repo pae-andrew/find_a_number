@@ -6,10 +6,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationListener;
 
-import java.util.Locale;
-
 import static ru.learnup.lesson19.MyGame.x;
 import static ru.learnup.lesson19.MyGame.locale;
+import static ru.learnup.lesson19.MyGame.AttemptCounter;
 
 @Slf4j
 public class MyEventListener implements ApplicationListener<MyEvent>, ApplicationContextAware {
@@ -18,7 +17,7 @@ public class MyEventListener implements ApplicationListener<MyEvent>, Applicatio
     @Override
     public void onApplicationEvent(MyEvent event) {
         if (!Utils.isNumeric(event.getData())) {
-            System.out.println(context.getMessage(event.getData(), null, locale));
+            System.out.println(context.getMessage(event.getData(), new Object[]{AttemptCounter}, locale));
         }
         else if (x == Integer.parseInt(event.getData())) {
             System.out.println(context.getMessage("win", new Object[]{event.getData()}, locale));
