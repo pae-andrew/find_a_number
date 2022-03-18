@@ -9,7 +9,7 @@ public class MyEventPublisher implements ApplicationContextAware {
     ApplicationContext context;
 
     public void publishEvent(String data) {
-        context.publishEvent(new MyEvent(context, data));
+        context.publishEvent(new MyEvent(data));
     }
 
     @Override

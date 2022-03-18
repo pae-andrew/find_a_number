@@ -1,13 +1,14 @@
 package ru.learnup.lesson19;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEvent;
 
 public class MyEvent extends ApplicationEvent {
 
     private final String data;
 
-    public MyEvent(Object source, String data) {
-        super(source);
+    public MyEvent(String data) {
+        super(data);
         this.data = data;
     }
 
